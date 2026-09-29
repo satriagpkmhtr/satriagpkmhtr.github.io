@@ -1,1 +1,0 @@
-# satriagpkmhtr.github.io
