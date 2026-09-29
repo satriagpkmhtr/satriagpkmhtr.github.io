@@ -1,0 +1,466 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Institut Teknologi Bandung</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #003b2f;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #e6b84a;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #e6b84a;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(0, 45, 35, 0.85),
+                    rgba(0, 45, 35, 0.85)
+                ),
+                url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #e6b84a;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.7;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 30px;
+            background: #e6b84a;
+            color: #003b2f;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: white;
+        }
+
+        /* SECTION */
+        section {
+            padding: 80px 8%;
+        }
+
+        .title {
+            text-align: center;
+            color: #003b2f;
+            font-size: 38px;
+            margin-bottom: 45px;
+        }
+
+        /* ABOUT */
+        .about {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #003b2f;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* SEJARAH */
+        .history {
+            background: #003b2f;
+            color: white;
+        }
+
+        .history .title {
+            color: #e6b84a;
+        }
+
+        .history-content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        /* FAKULTAS */
+        .faculty {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .faculty-item {
+            background: white;
+            padding: 20px;
+            border-left: 5px solid #e6b84a;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .faculty-item h3 {
+            color: #003b2f;
+            margin-bottom: 8px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #00271f;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer span {
+            color: #e6b84a;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .faculty {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+
+        <div class="logo">
+            <span>ITB</span> WEBSITE
+        </div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#sejarah">Sejarah</a></li>
+            <li><a href="#fakultas">Fakultas</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>
+                Institut Teknologi <span>Bandung</span>
+            </h1>
+
+            <p>
+                Mengenal salah satu perguruan tinggi teknologi
+                dan sains yang berada di Kota Bandung, Jawa Barat.
+            </p>
+
+            <a href="#tentang" class="button">
+                Pelajari Lebih Lanjut
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- TENTANG ITB -->
+    <section id="tentang">
+
+        <h2 class="title">
+            Tentang ITB
+        </h2>
+
+        <div class="about">
+
+            <p>
+                Institut Teknologi Bandung atau ITB merupakan salah satu
+                perguruan tinggi di Indonesia yang bergerak dalam bidang
+                sains, teknologi, seni, dan bidang keilmuan lainnya.
+            </p>
+
+            <br>
+
+            <p>
+                ITB memiliki kampus utama di kawasan Ganesha, Bandung.
+                Lingkungan akademiknya mendukung kegiatan pendidikan,
+                penelitian, inovasi, dan pengembangan teknologi.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- KEUNGGULAN -->
+    <section>
+
+        <h2 class="title">
+            Bidang Pendidikan
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">🔬</div>
+
+                <h3>Sains</h3>
+
+                <p>
+                    Mempelajari berbagai bidang ilmu dasar dan
+                    perkembangan penelitian ilmiah.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">⚙️</div>
+
+                <h3>Teknologi</h3>
+
+                <p>
+                    Mengembangkan ilmu dan teknologi untuk
+                    menjawab berbagai kebutuhan masyarakat.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🎨</div>
+
+                <h3>Seni & Desain</h3>
+
+                <p>
+                    Mengembangkan kreativitas melalui bidang
+                    seni, desain, dan perancangan.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEJARAH -->
+    <section class="history" id="sejarah">
+
+        <h2 class="title">
+            Sejarah Singkat
+        </h2>
+
+        <div class="history-content">
+
+            <p>
+                Sejarah pendidikan tinggi teknik di Bandung berawal
+                dari pendirian Technische Hoogeschool te Bandoeng
+                pada tahun 1920. Lembaga tersebut kemudian menjadi
+                bagian penting dalam perkembangan pendidikan tinggi
+                di Indonesia dan menjadi cikal bakal Institut Teknologi
+                Bandung.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAKULTAS -->
+    <section id="fakultas">
+
+        <h2 class="title">
+            Fakultas & Sekolah
+        </h2>
+
+        <div class="faculty">
+
+            <div class="faculty-item">
+                <h3>FMIPA</h3>
+                <p>Fakultas Matematika dan Ilmu Pengetahuan Alam</p>
+            </div>
+
+            <div class="faculty-item">
+                <h3>FTI</h3>
+                <p>Sekolah Teknik Elektro dan Informatika</p>
+            </div>
+
+            <div class="faculty-item">
+                <h3>FTMD</h3>
+                <p>Fakultas Teknik Mesin dan Dirgantara</p>
+            </div>
+
+            <div class="faculty-item">
+                <h3>SAPPK</h3>
+                <p>
+                    Sekolah Arsitektur, Perencanaan dan
+                    Pengembangan Kebijakan
+                </p>
+            </div>
+
+            <div class="faculty-item">
+                <h3>FSRD</h3>
+                <p>Fakultas Seni Rupa dan Desain</p>
+            </div>
+
+            <div class="faculty-item">
+                <h3>FTTM</h3>
+                <p>Fakultas Teknik Pertambangan dan Perminyakan</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            Website Informasi <span>Institut Teknologi Bandung</span>
+        </p>
+
+        <p>
+            Dibuat untuk tugas pembelajaran HTML
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
