@@ -1,54 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Angkasa</title>
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #dbeafe, #eff6ff);
-            color: #1e293b;
-            margin: 0;
-            padding: 30px;
-        }
-
-        h1, h2, h3 {
-            color: #1d4ed8;
-            text-align: center;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 1.8;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 6px 15px #00000020;
-        }
-
-        a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            color: #1e40af;
-            text-decoration: underline;
-        }
-
-        button {
-            background: #2563eb;
+            background: #0b1020;
             color: white;
-            border: none;
-            padding: 12px 22px;
-            border-radius: 8px;
-            cursor: pointer;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #111a30;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #55d6be;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
             transition: 0.3s;
         }
 
-        button:hover {
-            background: #1e40af;
-            transform: translateY(-2px);
+        nav a:hover {
+            color: #55d6be;
+        }
+
+        .hero {
+            margin: 30px auto;
+            width: 84%;
+            padding: 80px 40px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #087e8b, #493b91);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            margin-bottom: 25px;
+            color: #e0e7ff;
+        }
+
+        .button {
+            display: inline-block;
+            background: #55d6be;
+            color: #101827;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: white;
+        }
+
+        .content {
+            width: 84%;
+            margin: 35px auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .article, .sidebar {
+            background: #151f36;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #293550;
+            margin-bottom: 20px;
+        }
+
+        .article h3 {
+            margin: 12px 0;
+        }
+
+        .article p, .sidebar p {
+            color: #b8c4dc;
+            margin-bottom: 15px;
+        }
+
+        .date {
+            color: #55d6be;
+            font-size: 13px;
+        }
+
+        .article a, .sidebar a {
+            color: #55d6be;
+            text-decoration: none;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin: 12px 0;
+        }
+
+        .about {
+            width: 84%;
+            margin: 30px auto;
+            padding: 30px;
+            background: #151f36;
+            border-radius: 15px;
+        }
+
+        .about p {
+            color: #b8c4dc;
+        }
+
+        footer {
+            margin-top: 40px;
+            background: #070b15;
+            text-align: center;
+            padding: 25px;
+            color: #aebbd4;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 5px;
+                display: inline-block;
+            }
+
+            .hero {
+                padding: 55px 20px;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
+<body>
+
+    <header>
+        <div class="logo">ANGKASA.</div>
+
+        <nav>
+            <a href="#beranda">Beranda</a>
+            <a href="#tentang">Tentang Saya</a>
+            <a href="#sekolah">Sekolahku</a>
+            <a href="#lagu">Syair Lagu</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="beranda">
+        <h1>Website Angkasa</h1>
+        <p>Angkasa ganteng di mam temen.</p>
+        <a href="#artikel" class="button">Jelajahi Website ↗</a>
+    </section>
+
+    <div class="content" id="artikel">
+
+        <main>
+            <h2>Artikel & Kegiatan</h2>
+
+            <div class="article">
+                <span class="date">28 September 2026</span>
+                <h3>Pembelajaran Jarak Jauh</h3>
+                <p>
+                    Konser ini terletak di Hutan Kota GBK dengan
+                    membawakan setlist Panasea, Kuning, Sandiwara Semu,
+                    dan banyak lagi dengan harga tiket 75K.
+                </p>
+                <a href="#tentang">Selanjutnya →</a>
+            </div>
+
+            <div class="article">
+                <span class="date">29 September 2026</span>
+                <h3>Meet n Greet</h3>
+                <p>
+                    Meet n Greet dilaksanakan sehari setelah konser
+                    dengan biaya tambahan 25K dan kesempatan foto
+                    bersama personel band.
+                </p>
+                <a href="#lagu">Selanjutnya →</a>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <h2>Tautan Eksternal</h2>
+            <ul>
+                <li><a href="https://github.com/">GitHub ↗</a></li>
+                <li><a href="https://id.wikipedia.org/">Wikipedia ↗</a></li>
+                <li><a href="https://www.w3schools.com/">W3Schools ↗</a></li>
+                <li><a href="https://www.google.com/">Google ↗</a></li>
+            </ul>
+        </aside>
+
+    </div>
+
+    <section class="about" id="tentang">
+        <h2>Tentang Saya</h2>
+        <p>
+            Halo! Saya Angkasa. Selamat datang di website pribadi saya.
+            Di sini saya berbagi informasi, kegiatan, dan hal yang saya sukai.
+        </p>
+    </section>
+
+    <section class="about" id="sekolah">
+        <h2>Sekolahku</h2>
+        <p>
+            Saya bersekolah di SMK Negeri 1 Tangerang dan tertarik
+            dengan dunia desain serta teknologi.
+        </p>
+    </section>
+
+    <section class="about" id="lagu">
+        <h2>Syair Lagu</h2>
+        <p>
+            Tambahkan lagu favorit atau syair buatanmu sendiri di bagian ini.
+        </p>
+    </section>
+
+    <footer>
+        &copy; 2026 Satria Angkasa Pratama. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
