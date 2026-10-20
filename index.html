@@ -11,13 +11,14 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: Arial, sans-serif;
             background: #0b1020;
             color: white;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         header {
@@ -28,6 +29,10 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #293550;
         }
 
         .logo {
@@ -36,34 +41,51 @@
             color: #55d6be;
         }
 
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
+            padding: 8px 12px;
+            border-radius: 8px;
             transition: 0.3s;
         }
 
         nav a:hover {
             color: #55d6be;
+            background: #202b45;
+        }
+
+        section {
+            scroll-margin-top: 100px;
         }
 
         .hero {
-            margin: 30px auto;
+            margin: 35px auto;
             width: 84%;
-            padding: 80px 40px;
-            border-radius: 20px;
+            min-height: 350px;
+            padding: 75px 30px;
+            border-radius: 22px;
             background: linear-gradient(135deg, #087e8b, #493b91);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero h1 {
-            font-size: clamp(32px, 5vw, 52px);
+            font-size: clamp(35px, 5vw, 55px);
             margin-bottom: 15px;
         }
 
         .hero p {
-            margin-bottom: 25px;
             color: #e0e7ff;
+            margin-bottom: 25px;
         }
 
         .button {
@@ -74,15 +96,17 @@
             padding: 12px 24px;
             border-radius: 10px;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         .button:hover {
             background: white;
+            transform: translateY(-3px);
         }
 
         .content {
             width: 84%;
-            margin: 35px auto;
+            margin: 40px auto;
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 25px;
@@ -92,19 +116,28 @@
             margin-bottom: 20px;
         }
 
-        .article, .sidebar {
+        .article, .sidebar, .about {
             background: #151f36;
             padding: 25px;
-            border-radius: 15px;
+            border-radius: 16px;
             border: 1px solid #293550;
+        }
+
+        .article {
             margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .article:hover {
+            transform: translateY(-4px);
+            border-color: #55d6be;
         }
 
         .article h3 {
-            margin: 12px 0;
+            margin: 10px 0;
         }
 
-        .article p, .sidebar p {
+        .article p, .about p {
             color: #b8c4dc;
             margin-bottom: 15px;
         }
@@ -119,6 +152,10 @@
             text-decoration: none;
         }
 
+        .article a:hover, .sidebar a:hover {
+            text-decoration: underline;
+        }
+
         .sidebar ul {
             list-style: none;
         }
@@ -127,38 +164,52 @@
             margin: 12px 0;
         }
 
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            border-radius: 8px;
+            background: #202b45;
+        }
+
         .about {
             width: 84%;
             margin: 30px auto;
-            padding: 30px;
-            background: #151f36;
-            border-radius: 15px;
+            padding: 35px;
+            min-height: 180px;
         }
 
-        .about p {
-            color: #b8c4dc;
+        .about h2 {
+            color: #55d6be;
         }
 
         footer {
-            margin-top: 40px;
+            margin-top: 50px;
             background: #070b15;
             text-align: center;
             padding: 25px;
             color: #aebbd4;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 750px) {
             header {
                 flex-direction: column;
             }
 
+            nav {
+                justify-content: center;
+            }
+
             nav a {
-                margin: 5px;
-                display: inline-block;
+                font-size: 14px;
+                padding: 6px;
+            }
+
+            .hero, .content, .about {
+                width: 90%;
             }
 
             .hero {
-                padding: 55px 20px;
+                padding: 50px 20px;
             }
 
             .content {
@@ -170,6 +221,7 @@
 
 <body>
 
+    <!-- NAVIGASI -->
     <header>
         <div class="logo">ANGKASA.</div>
 
@@ -181,18 +233,20 @@
         </nav>
     </header>
 
+    <!-- BERANDA -->
     <section class="hero" id="beranda">
         <h1>Website Angkasa</h1>
         <p>Angkasa ganteng di mam temen.</p>
         <a href="#artikel" class="button">Jelajahi Website ↗</a>
     </section>
 
+    <!-- ARTIKEL DAN TAUTAN -->
     <div class="content" id="artikel">
 
         <main>
-            <h2>Artikel & Kegiatan</h2>
+            <h2>Artikel &amp; Kegiatan</h2>
 
-            <div class="article">
+            <article class="article">
                 <span class="date">28 September 2026</span>
                 <h3>Pembelajaran Jarak Jauh</h3>
                 <p>
@@ -201,9 +255,9 @@
                     dan banyak lagi dengan harga tiket 75K.
                 </p>
                 <a href="#tentang">Selanjutnya →</a>
-            </div>
+            </article>
 
-            <div class="article">
+            <article class="article">
                 <span class="date">29 September 2026</span>
                 <h3>Meet n Greet</h3>
                 <p>
@@ -212,46 +266,74 @@
                     bersama personel band.
                 </p>
                 <a href="#lagu">Selanjutnya →</a>
-            </div>
+            </article>
         </main>
 
         <aside class="sidebar">
             <h2>Tautan Eksternal</h2>
             <ul>
-                <li><a href="https://github.com/">GitHub ↗</a></li>
-                <li><a href="https://id.wikipedia.org/">Wikipedia ↗</a></li>
-                <li><a href="https://www.w3schools.com/">W3Schools ↗</a></li>
-                <li><a href="https://www.google.com/">Google ↗</a></li>
+                <li>
+                    <a href="https://github.com/" target="_blank">
+                        GitHub ↗
+                    </a>
+                </li>
+                <li>
+                    <a href="https://id.wikipedia.org/" target="_blank">
+                        Wikipedia ↗
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.w3schools.com/" target="_blank">
+                        W3Schools ↗
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.google.com/" target="_blank">
+                        Google ↗
+                    </a>
+                </li>
             </ul>
         </aside>
 
     </div>
 
+    <!-- TENTANG SAYA -->
     <section class="about" id="tentang">
         <h2>Tentang Saya</h2>
         <p>
-            Halo! Saya Angkasa. Selamat datang di website pribadi saya.
-            Di sini saya berbagi informasi, kegiatan, dan hal yang saya sukai.
+            Halo! Nama saya Satria Angkasa Pratama.
+            Saya berumur 17 tahun dan lahir di Tangerang.
+            Selamat datang di website pribadi saya!
         </p>
     </section>
 
+    <!-- SEKOLAHKU -->
     <section class="about" id="sekolah">
         <h2>Sekolahku</h2>
         <p>
-            Saya bersekolah di SMK Negeri 1 Tangerang dan tertarik
-            dengan dunia desain serta teknologi.
+            Saya bersekolah di SMK Negeri 1 Tangerang.
+            Saya tertarik dengan dunia desain, kreativitas,
+            dan teknologi.
         </p>
     </section>
 
+    <!-- SYAIR LAGU -->
     <section class="about" id="lagu">
         <h2>Syair Lagu</h2>
         <p>
-            Tambahkan lagu favorit atau syair buatanmu sendiri di bagian ini.
+            Musik adalah salah satu cara untuk menikmati
+            waktu dan mengekspresikan perasaan.
+        </p>
+        <p>
+            Tambahkan judul dan syair lagu favorit kamu
+            di bagian ini.
         </p>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-        &copy; 2026 Satria Angkasa Pratama. All Rights Reserved.
+        &copy; 2026 Satria Angkasa Pratama.
+        All Rights Reserved.
     </footer>
 
 </body>
